@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react" 
-import{getReviews} from "./api"
-
+import{getReviews, getOneReview} from "./api"
+import {Link} from "react-router-dom"
 
 const AllReviews = () => {
     const [reviews, setReviews] = useState([])
@@ -26,9 +26,10 @@ const AllReviews = () => {
                             <br></br>
                             {review.review_body}
                             <br></br>
-                            
-                          
-                        </li>
+                            <Link to={`/reviews/${review.review_id}`}>
+                            Comments {review.comment_count}
+                            </Link>
+                            </li>
                     )
                 })}
             </ul>
