@@ -1,14 +1,16 @@
-// import "./App.css";
+import "./App.css";
 import Header from "./Header";
-import { BrowserRouter, Router, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import AllReviews from "./AllReviews";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route path="/" element={<AllReviews />} />
+      </Routes>
+    </div>
   );
 }
 

@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+#app-header {
+  font-size: 80px;
+  text-transform: uppercase;
+}
+
+.listedItem {
+  padding: 2%;
+  margin: 2%
+}
