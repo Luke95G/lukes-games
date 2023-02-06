@@ -12,7 +12,7 @@ const AllReviews = () => {
     }, [])
     return (
         <div>
-            <h2>Categories that I Will change later!</h2>
+            <h2>Categories that I will change later!</h2>
             <ul id="reviewList">
                 {reviews.map((review)=>{
                     return (
