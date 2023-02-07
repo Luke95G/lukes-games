@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import {useParams} from "react-router-dom"
 import { getOneReview } from "../api"
+import { Comments } from "./Comments"
 
 
 
@@ -29,11 +30,13 @@ export const OneReview = () => {
         <br></br>
         <img src={review.review_img_url} alt={`${review.title}`} />
         <br></br>
-        Posted : {review.created_at} by {review.owner}
+        <strong>Posted : </strong> {review.created_at} by {review.owner}
         <br></br>
         {review.review_body}
         <br></br>
-        Comments: {review.comment_count}
+       <strong> Comments : </strong> {review.comment_count}
+        <br></br>
+        <Comments OneReview={OneReview} />
     </section>
 }
 
