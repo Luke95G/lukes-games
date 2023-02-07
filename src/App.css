@@ -23,3 +23,8 @@ img{
   height: auto;
   width: auto\9; 
 }
+
+#navBar {
+  font-size: 30px;
+  text-transform: lowercase;
+}
