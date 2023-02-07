@@ -9,6 +9,7 @@
 }
 
 .listedItem {
+  list-style: none;
   padding: 2%;
   margin: 2%;
   border-radius: 15px;
@@ -27,4 +28,11 @@ img{
 #navBar {
   font-size: 30px;
   text-transform: lowercase;
+}
+
+.commentList {
+  border-radius: 10px;
+ border: solid black 2px;
+ margin: 1%;
+ list-style: none;
 }

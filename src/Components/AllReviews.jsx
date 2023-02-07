@@ -27,11 +27,11 @@ const AllReviews = () => {
                             <h3>{review.title}</h3><br></br>
                             <img src={review.review_img_url} alt={`${review.title}`}/>
                             <br></br>
-                            Posted : {review.created_at} by {review.owner}
+                            <strong>Posted : </strong>{review.created_at} by {review.owner}
                             <br></br>
-                            Category : {review.category}
+                            <strong>Category :</strong> {review.category}
                             <br></br>
-                            Comments: {review.comment_count}
+                            <strong>Comments: </strong> {review.comment_count}
                             <br></br>
                             <Link to={`/reviews/${review.review_id}`}>
                              Click to read comments and reviews!
