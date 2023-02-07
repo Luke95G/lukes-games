@@ -8,12 +8,13 @@ import { Comments } from "./Comments"
 
 export const OneReview = () => {
 
-    const [review, setReview] = useState([])
+    const [review, setReview] = useState([]);
     const {review_id} = useParams();
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=>{
-        getOneReview(review_id).then((review)=>{
+        getOneReview(review_id)
+        .then((review)=>{
             setIsLoading(false)
             setReview(review)
         })
