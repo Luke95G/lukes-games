@@ -7,7 +7,7 @@ export const Votes = ({review}) => {
     const [votes, setVotes] = useState(review.votes);
     const {review_id} = useParams();
     const [isClicked, setIsClicked] = useState(false)
-    const [error, setError] = useState(false)
+    const [error, setError] = useState(null)
 
 
     useEffect(()=>{
@@ -15,7 +15,7 @@ export const Votes = ({review}) => {
         .then((review)=>{
             setVotes(review.votes)
         })
-    }, [])
+    }, [review_id])
 
     const handleClick = () => {
         setIsClicked(!isClicked)
@@ -38,6 +38,6 @@ export const Votes = ({review}) => {
 
 return (<section>
     {error ? <p>{error}</p> : null}
-    <button className="voteButt" onClick={handleClick}>{`Vote | ${votes}`}</button> 
+    <button className="Butt" onClick={handleClick}>{`Vote | ${votes}`}</button> 
 </section>)
 }

@@ -37,7 +37,7 @@ img{
  list-style: none;
 }
 
-.voteButt{
+.Butt{
   background-color: #5b4caf;
   border-radius: 10px;
   border: none;
@@ -50,7 +50,23 @@ img{
   transition-duration: 0.4s
 }
 
-.voteButt:hover {
+.Butt:hover {
   background-color: lightsteelblue;
   color: black;
+}
+
+.comment{
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.commentBody {
+  resize: none;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
