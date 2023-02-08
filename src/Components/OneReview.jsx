@@ -2,6 +2,7 @@ import {useState, useEffect} from "react"
 import {useParams} from "react-router-dom"
 import { getOneReview } from "../api"
 import { Comments } from "./Comments"
+import { Votes } from "./Votes"
 
 
 
@@ -36,6 +37,8 @@ export const OneReview = () => {
         {review.review_body}
         <br></br>
        <strong> Comments : </strong> {review.comment_count}
+        <br></br>
+        <Votes review={review}/>
         <br></br>
         <Comments OneReview={OneReview} />
     </section>

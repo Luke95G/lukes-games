@@ -17,4 +17,3 @@ export const Comments = () => {
         <CommentList comments={comments}/>
         )
 }
-
