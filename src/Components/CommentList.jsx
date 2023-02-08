@@ -1,6 +1,11 @@
+import {useState, useEffect} from "react"
+import { OneReview } from "./OneReview";
+import { useParams } from "react-router-dom";
+import { getOneReview } from "../api";
 
 
 export const CommentList = ({comments}) => {
+    
     return (
         <section>
         <ul>
@@ -11,7 +16,8 @@ export const CommentList = ({comments}) => {
             <br></br>
             <strong>Written by :</strong> {comment.author}
             <br></br>
-            <strong>Date :</strong> {comment.created_at}
+            <strong>Date :</strong> {comment.created_at} 
+            <br></br>
             </li>
             )
         })}

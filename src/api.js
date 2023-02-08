@@ -23,3 +23,11 @@ export const getCommentByReviewId = (review_id) => {
       return response.data.comments;
     });
 };
+
+export const patchReviewVotes = (review_id, inc_votes) => {
+  return gamesInstanceAPI
+    .patch(`/reviews/${review_id}`, { inc_votes })
+    .then((response) => {
+      return response.data.review;
+    });
+};

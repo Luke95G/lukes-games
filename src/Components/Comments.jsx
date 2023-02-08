@@ -7,6 +7,7 @@ export const Comments = () => {
     const [comments, setComments] = useState([]);
     const {review_id} = useParams();
 
+
     useEffect(()=>{
         getCommentByReviewId(review_id).then((response)=>{
             setComments(response.comments)
@@ -16,4 +17,3 @@ export const Comments = () => {
         <CommentList comments={comments}/>
         )
 }
-
