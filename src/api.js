@@ -4,11 +4,20 @@ export const gamesInstanceAPI = axios.create({
   baseURL: "https://lukes-games.onrender.com/api",
 });
 
-export const getReviews = () => {
-  return gamesInstanceAPI.get("/reviews").then((response) => {
-    return response.data.reviews;
-  });
-};
+export const getReviews = (date, comments, votes) => {
+  return gamesInstanceAPI
+    .get("/reviews", {
+      params: {
+        date: date,
+        comments: comments,
+        votes: votes,
+        order: "asc",
+      },
+    })
+    .then((response) => {
+      return response.data.reviews;
+    });
+}; // here
 
 export const getQueriedReviews = (sortByQuery) => {
   return gamesInstanceAPI

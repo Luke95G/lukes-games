@@ -7,19 +7,48 @@ const AllReviews = () => {
     const [reviews, setReviews] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
+    // const {params} = useParams()    
+    const [sortAsc, setSortAsc ] = useState("asc") // here
+    const [sortBy, setSortBy] = useState("")
+
     useEffect(()=>{
-        getReviews().then((reviews)=>{
+        getReviews({sortAsc}).then((reviews)=>{ // arg in here
             setIsLoading(false)
-            setReviews(reviews)
+            setReviews(reviews) // here
         })
-    }, [])
+        .catch((error)=>{
+            return <h2>Something went wrong ...</h2>
+        })
+    }, [sortAsc, sortBy])
+
+    console.log(sortAsc, "<<sortOrder") // here
+
+    const settingSorted = (event) => {
+        event.preventDefault()
+        setSortBy(event.target.value)
+    } // here
+
+    const settingAsc = (event) =>{
+        event.preventDefault()
+        setSortAsc(event.target.value)
+    } // here
 
     if (isLoading){
         return  <h2>Loading please wait ...</h2>
     }
 
-    return (
+    return ( // the setOrder button below updates state
         <section>
+
+            <label htmlFor="sort">Sort by : </label>
+                
+                <select onChange={settingAsc}>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+                
+
+            
             <Categories reviews={reviews} setReviews={setReviews}/>
             <ul id="reviewList">
                 {reviews.map((review)=>{
