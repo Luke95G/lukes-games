@@ -6,7 +6,6 @@ import { Votes } from "./Votes"
 
 
 
-
 export const OneReview = () => {
 
     const [review, setReview] = useState([]);

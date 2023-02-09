@@ -1,7 +1,3 @@
-import {useState, useEffect} from "react"
-import { OneReview } from "./OneReview";
-import { useParams } from "react-router-dom";
-import { getOneReview } from "../api";
 
 
 export const CommentList = ({comments}) => {

@@ -31,3 +31,15 @@ export const patchReviewVotes = (review_id, inc_votes) => {
       return response.data.review;
     });
 };
+
+export const postComment = (review_id, body) => {
+  const postBody = {
+    username: "grumpy19",
+    body: body,
+  };
+  return gamesInstanceAPI
+    .post(`/reviews/${review_id}/comments`, postBody)
+    .then((response) => {
+      return response.data.newComment;
+    });
+};

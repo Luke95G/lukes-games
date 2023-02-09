@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getCommentByReviewId } from "../api"
+import { AddComments } from "./AddComment"
 import { CommentList } from "./CommentList"
+
 
 export const Comments = () => {
     const [comments, setComments] = useState([]);
@@ -14,6 +16,10 @@ export const Comments = () => {
         })
     }, [review_id])
     return (
+        <section>
+        <AddComments review_id={review_id} setComments={setComments}/>
         <CommentList comments={comments}/>
+        </section>
         )
 }
+
