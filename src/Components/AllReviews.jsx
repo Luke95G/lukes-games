@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react" 
 import{getReviews} from "../api"
 import {Link} from "react-router-dom"
+import { Categories } from "./Categories"
 
 const AllReviews = () => {
     const [reviews, setReviews] = useState([])
@@ -18,8 +19,8 @@ const AllReviews = () => {
     }
 
     return (
-        <div>
-            <h2>Categories that I will change later!</h2>
+        <section>
+            <Categories reviews={reviews} setReviews={setReviews}/>
             <ul id="reviewList">
                 {reviews.map((review)=>{
                     return (
@@ -41,7 +42,7 @@ const AllReviews = () => {
                     )
                 })}
             </ul>
-        </div>
+        </section>
     )
 }
 
