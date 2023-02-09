@@ -74,3 +74,41 @@ img{
 .alert {
   padding: 8px 16px;
 }
+
+
+.categoryBar {
+  background-color: #5b4caf;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  margin: 5px;
+}
+
+.categoryBar:hover {
+  background-color: lightsteelblue;
+  color: black;
+}
+
+.clearFilter {
+  background-color: #c85fee;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  margin: 5px;
+}
+.clearFilter:hover {
+  background-color: lightsteelblue;
+  color: black;
+}

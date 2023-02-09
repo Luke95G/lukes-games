@@ -10,6 +10,13 @@ export const getReviews = () => {
   });
 };
 
+export const getQueriedReviews = (sortByQuery) => {
+  return gamesInstanceAPI
+    .get(`/reviews/?category=${sortByQuery}`)
+    .then((response) => {
+      return response.data.reviews;
+    });
+};
 export const getOneReview = (review_id) => {
   return gamesInstanceAPI.get(`/reviews/${review_id}`).then((review) => {
     return review.data.review[0];
