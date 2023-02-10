@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 import { Categories } from "./Categories"
 
 
-const AllReviews = () => {
+export const AllReviews = () => {
     const [reviews, setReviews] = useState([])
     const [isLoading, setIsLoading] = useState(true)   
     const [order, setOrder ] = useState("desc")
@@ -85,6 +85,3 @@ const AllReviews = () => {
         </section>
     )
 }
-
-
-export default AllReviews

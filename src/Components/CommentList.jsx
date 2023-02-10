@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { deleteComment } from "../api";
-import { useContext } from "react";
 import { UserContext } from "../Context/userContext"
 
 
@@ -9,7 +8,6 @@ export const CommentList = ({comments, setComments}) => {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const userValue = useContext(UserContext);
-
 
     const handleDeleteComment = (comment_id) => {
         deleteComment(comment_id)
@@ -34,7 +32,6 @@ export const CommentList = ({comments, setComments}) => {
         )
       }
 
-     
     return (
         <section>
         <ul>
@@ -50,8 +47,7 @@ export const CommentList = ({comments, setComments}) => {
             {comment.author === userValue.loggedInUsername.name ? (
                 <button onClick={() => handleDeleteComment(comment.comment_id)}>
                   Delete
-                </button>
-              ) : null}
+                </button>) : null}
             </li>
             )
         })}

@@ -4,6 +4,7 @@ import { postComment } from "../api";
 export const AddComments = ({ setComments, review_id}) => {
     const [newComment, setNewComment] = useState("")
     const [submitButton, setSubmitButton] = useState(false)
+    const [error, setError] = useState(false);
 
     const handleSubmit = (event)=> {
         event.preventDefault();
@@ -13,7 +14,9 @@ export const AddComments = ({ setComments, review_id}) => {
                 return [commentFromApi, ...currentComments]
             })
             setNewComment("")
-        })
+        }).catch((error) => {
+            setError(error);
+          });
     }
     
     const handleButtonTimeout = () => {
@@ -23,6 +26,13 @@ export const AddComments = ({ setComments, review_id}) => {
         }, 3000)
     }
 
+    if (error){
+        return (
+            <section>
+                <p>Oops, something went wrong ...</p>
+            </section>
+        )
+    }
 
     return (<form className="comment" onSubmit={handleSubmit}>
         <label htmlFor="newComment"></label>
