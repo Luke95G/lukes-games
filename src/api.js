@@ -50,3 +50,9 @@ export const postComment = (review_id, body) => {
       return response.data.newComment;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return gamesInstanceAPI.delete(`/comments/${comment_id}`).then((response) => {
+    return response;
+  });
+};

@@ -18,13 +18,12 @@ export const OneReview = () => {
         setIsLoading(true)
         Promise.all([getOneReview(review_id), getReviews(review_id) ])
         .then(([review, comments])=>{
-            setIsLoading(false)
             setReview(review)
             setIsLoading(false)
         }).catch((error)=>{
             console.log(error)
             setError(error)
-            setIsLoading(false) // changed this whole block
+            setIsLoading(false)
         })
     }, [review_id])
 
