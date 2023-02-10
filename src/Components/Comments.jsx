@@ -15,10 +15,11 @@ export const Comments = () => {
             setComments(response.comments)
         })
     }, [review_id])
+
     return (
         <section>
         <AddComments review_id={review_id} setComments={setComments}/>
-        <CommentList comments={comments}/>
+        <CommentList comments={comments} setComments={setComments}/>
         </section>
         )
 }
