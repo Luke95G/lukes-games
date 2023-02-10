@@ -1,50 +1,59 @@
 import {useState, useEffect} from "react" 
-import{getReviews} from "../api"
+import { gamesInstanceAPI } from "../api"
 import {Link} from "react-router-dom"
 import { Categories } from "./Categories"
 
+
 const AllReviews = () => {
     const [reviews, setReviews] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)   
+    const [order, setOrder ] = useState("desc")
+    const [sortQuery, setSortQuery] = useState()
 
-    // const {params} = useParams()    
-    const [sortAsc, setSortAsc ] = useState("asc") // here
-    const [sortBy, setSortBy] = useState("")
+
+    const queryParams = new URLSearchParams(window.location.search)
+    const category = queryParams.get("category_name")
 
     useEffect(()=>{
-        getReviews({sortAsc}).then((reviews)=>{ // arg in here
+        gamesInstanceAPI.get('/reviews',
+         {params:
+            {category: category,
+             sort_by: sortQuery,
+             order: order
+            }}).then((result)=>{
+            setReviews(result.data.reviews)
             setIsLoading(false)
-            setReviews(reviews) // here
+        }).catch((error)=>{
         })
-        .catch((error)=>{
-            return <h2>Something went wrong ...</h2>
-        })
-    }, [sortAsc, sortBy])
+    }, [category, sortQuery, order])
 
-    console.log(sortAsc, "<<sortOrder") // here
-
-    const settingSorted = (event) => {
+    const handleOrderChange = (event) =>{
         event.preventDefault()
-        setSortBy(event.target.value)
-    } // here
+        setOrder(event.target.value)
+    }
 
-    const settingAsc = (event) =>{
+    const handleSortByChange = (event) => {
         event.preventDefault()
-        setSortAsc(event.target.value)
-    } // here
+        setSortQuery(event.target.value)
+    }
+
 
     if (isLoading){
         return  <h2>Loading please wait ...</h2>
     }
 
-    return ( // the setOrder button below updates state
+    return (
         <section>
 
             <label htmlFor="sort">Sort by : </label>
-                
-                <select onChange={settingAsc}>
-                    <option value="asc">Ascending</option>
+                <select onChange={handleOrderChange}>
                     <option value="desc">Descending</option>
+                    <option value="asc">Ascending</option>
+                </select>
+                <label htmlFor="sortBy">Sort by :</label>
+                <select onChange={handleSortByChange}>
+                    <option value="created_at">Date</option>
+                    <option value="votes">Votes</option>
                 </select>
                 
 
@@ -62,6 +71,8 @@ const AllReviews = () => {
                             <strong>Category :</strong> {review.category}
                             <br></br>
                             <strong>Comments: </strong> {review.comment_count}
+                            <br></br>
+                            <strong>Votes :</strong> {review.votes}
                             <br></br>
                             <Link to={`/reviews/${review.review_id}`}>
                              Click to read comments and reviews!
