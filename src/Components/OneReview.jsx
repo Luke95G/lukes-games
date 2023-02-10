@@ -11,7 +11,7 @@ export const OneReview = () => {
     const [review, setReview] = useState([]);
     const {review_id} = useParams();
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(false)
 
     useEffect(()=>{
         setError(false)
@@ -21,7 +21,6 @@ export const OneReview = () => {
             setReview(review)
             setIsLoading(false)
         }).catch((error)=>{
-            console.log(error)
             setError(error)
             setIsLoading(false)
         })
@@ -30,7 +29,7 @@ export const OneReview = () => {
     if (isLoading){
         return  <h2>Loading please wait ...</h2>
     }
-    
+    if (!error){
 
     return <section className="listedItem">
         
@@ -48,6 +47,7 @@ export const OneReview = () => {
         <br></br>
         <Comments OneReview={OneReview} />
     </section>
+ }
 }
 
 
