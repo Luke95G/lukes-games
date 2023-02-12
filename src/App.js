@@ -1,5 +1,5 @@
 import "./App.css";
-import Header from "./Header";
+import Header from "./Components/Header";
 import { Routes, Route } from "react-router-dom";
 import { AllReviews } from "./Components/AllReviews";
 import { OneReview } from "./Components/OneReview";

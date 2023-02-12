@@ -44,37 +44,35 @@ export const AllReviews = () => {
 
     return (
         <section>
-
-            <label htmlFor="sort">Sort by : </label>
-                <select onChange={handleOrderChange}>
-                    <option value="desc">Descending</option>
-                    <option value="asc">Ascending</option>
+            <br></br>
+            <label htmlFor="sort" alt="sort by drop down, ascending or descending"><strong>Sort by : </strong></label>
+                <select className="dropDown" onChange={handleOrderChange}>
+                    <option alt="Descending"value="desc">Descending</option>
+                    <option alt="Ascending"value="asc">Ascending</option>
                 </select>
-                <label htmlFor="sortBy">Sort by :</label>
-                <select onChange={handleSortByChange}>
-                    <option value="created_at">Date</option>
-                    <option value="votes">Votes</option>
+                <label htmlFor="sortBy" alt="drop down sort by date, votes"><strong>Sort by : </strong></label>
+                <select className="dropDown" onChange={handleSortByChange}>
+                    <option alt="Date"value="created_at">Date</option>
+                    <option alt="Votes"value="votes">Votes</option>
                 </select>
                 
-
-            
             <Categories reviews={reviews} setReviews={setReviews}/>
-            <ul id="reviewList">
+            <ul id="reviewList" alt="list of all reviews">
                 {reviews.map((review)=>{
                     return (
                         <li className="listedItem" key={review.review_id}>
                             <h3>{review.title}</h3><br></br>
                             <img src={review.review_img_url} alt={`${review.title}`}/>
                             <br></br>
-                            <strong>Posted : </strong>{review.created_at} by {review.owner}
+                            <strong alt="Author of review">Posted : </strong>{review.created_at} by {review.owner}
                             <br></br>
-                            <strong>Category :</strong> {review.category}
+                            <strong alt="Category of review">Category :</strong> {review.category}
                             <br></br>
-                            <strong>Comments: </strong> {review.comment_count}
+                            <strong alt="Comments on review">Comments : </strong> {review.comment_count}
                             <br></br>
-                            <strong>Votes :</strong> {review.votes}
+                            <strong alt="Votes on review">Votes :</strong> {review.votes}
                             <br></br>
-                            <Link to={`/reviews/${review.review_id}`}>
+                            <Link alt="link to the review" to={`/reviews/${review.review_id}`}>
                              Click to read comments and reviews!
                             </Link>
                             <br></br>

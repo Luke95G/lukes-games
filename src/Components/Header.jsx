@@ -4,7 +4,7 @@ const Header = () => {
     return (
     <header id="app-header">
         NC Games Page
-        <nav id="navBar" ><Link to="/">Home</Link></nav>
+        <nav alt="Link to home page" id="navBar" ><Link to="/">Home</Link></nav>
         </header>
     )
 }

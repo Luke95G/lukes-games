@@ -37,16 +37,16 @@ export const CommentList = ({comments, setComments}) => {
         <ul>
         {comments.map((comment)=>{
             return (
-                 <li className="commentList"key={comment.comment_id}>
-            <strong>Comment : </strong> {comment.body}
+                 <li alt="List of comments"className="commentList"key={comment.comment_id}>
+            <strong alt="comment">Comment : </strong> {comment.body}
             <br></br>
-            <strong>Written by :</strong> {comment.author}
+            <strong alt="author">Written by :</strong> {comment.author}
             <br></br>
-            <strong>Date :</strong> {comment.created_at} 
+            <strong alt="date written">Date :</strong> {comment.created_at} 
             <br></br>
             {comment.author === userValue.loggedInUsername.name ? (
-                <button onClick={() => handleDeleteComment(comment.comment_id)}>
-                  Delete
+                <button className="delButt" onClick={() => handleDeleteComment(comment.comment_id)}>
+                Delete
                 </button>) : null}
             </li>
             )
